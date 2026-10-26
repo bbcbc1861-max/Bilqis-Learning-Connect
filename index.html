@@ -1,251 +1,207 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدرسة بلقيس للبنات (7-10) - بوابة الإبداع والابتكار</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font: Cairo for elegant Arabic typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                    },
-                    colors: {
-                        pastelPink: '#fff1f2',
-                        roseGold: '#e11d48',
-                        softGold: '#d97706',
-                        pearlWhite: '#fdfbfb',
-                        elegantGray: '#64748b'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            perspective: 1200px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#7f1d3a">
+<title>مدرسة بلقيس للبنات (7-10) - بوابة الإبداع والابتكار</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#7f1d3a; --plum-d:#5c1229; --rose:#e11d48; --gold:#b7791f; --gold-l:#f3e2bd;
+    --ivory:#fffaf6; --blush:#fdeef0; --ink:#2b1a21; --muted:#6b5a62; --line:#ead9dc;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cairo',system-ui,sans-serif; color:var(--ink); line-height:1.8;
+    background:
+      radial-gradient(900px 500px at 100% -10%, #fbd5dc66, transparent 60%),
+      radial-gradient(700px 500px at -10% 40%, #f3e2bd66, transparent 60%),
+      var(--ivory);
+    min-height:100vh; overflow-x:hidden;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .display{font-family:'Amiri','Cairo',serif}
+  :focus-visible{outline:3px solid var(--gold); outline-offset:3px; border-radius:8px}
 
-        /* 3D Card and Tilt Styling */
-        .card-3d {
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease, box-shadow 0.3s ease;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(225, 29, 72, 0.05);
-        }
+  /* Hero */
+  .hero{
+    background:linear-gradient(140deg,var(--plum) 0%,var(--plum-d) 100%);
+    color:#fff; border-radius:28px; position:relative; overflow:hidden;
+    box-shadow:0 24px 50px -20px rgba(127,29,58,.55);
+  }
+  .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+  .hero::before{width:320px;height:320px;top:-140px;left:-100px;border:1px solid #ffffff2e}
+  .hero::after{width:220px;height:220px;bottom:-110px;right:-70px;background:#ffffff0d}
+  .chip{background:#ffffff1f;border:1px solid #ffffff38;border-radius:999px}
 
-        .card-content-3d {
-            transform: translateZ(40px);
-        }
+  /* Pillars */
+  .pillar{
+    background:#fff; border:1px solid var(--line); border-radius:22px;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  @media (hover:hover) and (pointer:fine){
+    .pillar:hover{transform:translateY(-4px);box-shadow:0 18px 30px -18px rgba(127,29,58,.35)}
+  }
+  .icon-box{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:1.25rem}
 
-        /* 3D Floating Animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
-            50% { transform: translateY(-12px) rotateX(2deg) rotateY(-2deg); }
-        }
+  /* Steps */
+  .step-num{
+    width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;
+    background:var(--gold-l);color:var(--gold);font-weight:900;
+  }
 
-        .floating-3d {
-            animation: float 6s ease-in-out infinite;
-        }
+  /* Form panel */
+  .form-panel{
+    background:#fff; border:1px solid var(--line); border-radius:28px;
+    box-shadow:0 24px 50px -28px rgba(127,29,58,.35);
+  }
+  .frame-wrap{
+    position:relative; background:#fff; border:1px solid var(--line); border-radius:20px; overflow:hidden;
+    height:clamp(560px, 88vh, 980px);
+  }
+  .frame-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+  .loader{
+    position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+    background:var(--blush);color:var(--plum);transition:opacity .4s ease;z-index:1;
+  }
+  .loader.done{opacity:0;pointer-events:none}
+  .spin{width:42px;height:42px;border-radius:50%;border:4px solid #f3c6cf;border-top-color:var(--plum);animation:spin 1s linear infinite;margin:0 auto 10px}
+  @keyframes spin{to{transform:rotate(360deg)}}
 
-        /* 3D Button Depth */
-        .btn-3d {
-            transform-style: preserve-3d;
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 0 #be123c, 0 15px 25px rgba(0,0,0,0.15);
-        }
-        .btn-3d:hover {
-            transform: translateY(-4px) translateZ(10px);
-            box-shadow: 0 14px 0 #be123c, 0 20px 30px rgba(225, 29, 72, 0.3);
-        }
-        .btn-3d:active {
-            transform: translateY(4px) translateZ(0px);
-            box-shadow: 0 4px 0 #be123c, 0 8px 15px rgba(0,0,0,0.2);
-        }
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+    min-height:52px;padding:.75rem 1.75rem;border-radius:16px;font-weight:700;font-size:1rem;
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--plum);color:#fff;box-shadow:0 10px 0 -2px var(--plum-d), 0 16px 24px -12px rgba(0,0,0,.35)}
+  .btn-primary:hover{background:var(--plum-d)}
+  .btn-primary:active{transform:translateY(3px);box-shadow:0 5px 0 -2px var(--plum-d)}
+  .btn-light{background:#fff;color:var(--plum);border:1px solid #ffffff80}
 
-        /* Glassmorphism with 3D Depth */
-        .glass-3d {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            transform-style: preserve-3d;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-    </style>
+  /* Mobile fine-tuning */
+  @media (max-width:640px){
+    .hero{border-radius:22px}
+    .form-panel{border-radius:22px}
+    .frame-wrap{height:clamp(600px, 90vh, 900px);border-radius:16px}
+    .btn{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  }
+</style>
 </head>
-<body class="text-slate-800 relative selection:bg-rose-500 selection:text-white">
+<body>
 
-    <!-- Decorative 3D Background Elements -->
-    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div class="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-br from-rose-200/40 to-pink-300/40 rounded-full blur-3xl floating-3d"></div>
-        <div class="absolute top-1/2 -right-32 w-96 h-96 bg-gradient-to-br from-amber-200/30 to-rose-200/30 rounded-full blur-3xl floating-3d" style="animation-delay: -3s;"></div>
-    </div>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-10">
 
-    <!-- Main Wrapper -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        
-        <!-- Header Section with 3D Tilt -->
-        <header id="headerCard" class="card-3d glass-3d rounded-3xl p-6 sm:p-10 mb-12 text-center relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-rose-500/10 to-transparent rounded-bl-full pointer-events-none"></div>
-            
-            <div class="card-content-3d">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 text-rose-600 font-semibold text-sm mb-4 shadow-sm border border-rose-100">
-                    <i class="fa-solid fa-graduation-cap text-rose-500"></i>
-                    <span>بوابة تجويد التعليم والتعلم</span>
-                </div>
-                
-                <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4 drop-shadow-sm">
-                    مدرسة بلقيس للبنات <span class="text-rose-600 font-light text-2xl sm:text-4xl block sm:inline mt-1 sm:mt-0">(الصفوف 7-10)</span>
-                </h1>
+  <!-- Hero -->
+  <header class="hero px-5 py-9 sm:px-12 sm:py-14 text-center mb-8 sm:mb-12">
+    <div class="relative z-10">
+      <div class="chip inline-flex items-center gap-2 px-4 py-1.5 text-sm font-semibold mb-5">
+        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+        <span>بوابة تجويد التعليم والتعلم</span>
+      </div>
 
-                <div class="flex flex-wrap justify-center items-center gap-6 mt-6 text-sm sm:text-base font-medium text-slate-600">
-                    <div class="flex items-center gap-2 bg-white/80 px-4 py-2 rounded-2xl shadow-sm border border-slate-100">
-                        <i class="fa-solid fa-user-tie text-rose-500"></i>
-                        <span>مديرة المدرسة: <strong class="text-slate-900">الأستاذة محفوظة الروشدية</strong></span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-white/80 px-4 py-2 rounded-2xl shadow-sm border border-slate-100">
-                        <i class="fa-brands fa-x-twitter text-slate-900"></i>
-                        <span>الحساب الرسمي: <strong class="text-rose-600">@EduGovNbt2156</strong></span>
-                    </div>
-                </div>
-            </div>
-        </header>
+      <h1 class="display font-bold leading-tight mb-2" style="font-size:clamp(2rem,6vw,3.75rem)">
+        مدرسة بلقيس للبنات
+      </h1>
+      <p class="display" style="font-size:clamp(1.15rem,3.2vw,1.75rem);color:var(--gold-l)">الصفوف 7 – 10</p>
 
-        <!-- Vision & Goals Cards Section -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <!-- Card 1 -->
-            <div class="tilt-card card-3d glass-3d p-8 rounded-3xl text-center relative group">
-                <div class="card-content-3d">
-                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-tr from-rose-500 to-pink-400 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-rose-500/30 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">أفكار الطالبات</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        نستمع بشغف لأفكاركن ومقترحاتكن الإبداعية لتطوير بيئة التعليم والتعلم بكل تميز.
-                    </p>
-                </div>
-            </div>
+      <p class="max-w-2xl mx-auto mt-5 text-white/85 text-sm sm:text-lg">
+        صوتكِ يصنع الفرق. شاركينا فكرتكِ لتطوير التعليم في مدرستنا، وقد تُعرض في الطابور المدرسي وعلى الشاشات.
+      </p>
 
-            <!-- Card 2 -->
-            <div class="tilt-card card-3d glass-3d p-8 rounded-3xl text-center relative group">
-                <div class="card-content-3d">
-                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-tr from-amber-500 to-amber-400 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">تجويد التعليم</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        نعمل معاً وبمشاركتكن الفعالة على رفع كفاءة الأنشطة الصفية والبرامج التعليمية المبتكرة.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="tilt-card card-3d glass-3d p-8 rounded-3xl text-center relative group">
-                <div class="card-content-3d">
-                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/30 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fa-solid fa-comments"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">صندوق الاقتراحات</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        شاركينا مقترحكِ ليعرض في الطابور المدرسي وعبر الشاشات كفكرة ملهمة ورائعة.
-                    </p>
-                </div>
-            </div>
+      <div class="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 mt-7 text-sm sm:text-base">
+        <div class="chip flex items-center justify-center gap-2 px-4 py-2.5">
+          <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+          <span>مديرة المدرسة: <strong>الأستاذة محفوظة الروشدية</strong></span>
         </div>
+        <div class="chip flex items-center justify-center gap-2 px-4 py-2.5">
+          <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          <span>الحساب الرسمي: <strong dir="ltr" class="inline-block">@EduGovNbt2156</strong></span>
+        </div>
+      </div>
 
-        <!-- Interactive Form Section -->
-        <section id="formSection" class="card-3d glass-3d rounded-3xl p-6 sm:p-10 mb-12 shadow-2xl relative overflow-hidden border border-white">
-            <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-gradient-to-tl from-rose-400/20 to-transparent rounded-full blur-2xl pointer-events-none"></div>
-            
-            <div class="card-content-3d">
-                <div class="text-center mb-8">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 font-semibold text-sm mb-3 shadow-sm border border-amber-100">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <span>مشاركة طالبة بلقيس</span>
-                    </div>
-                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2">نموذج اقتراحات تجويد التعليم والتعلم</h2>
-                    <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
-                        عزيزتي الطالبة، يمكنكِ تعبئة النموذج أدناه مباشرةً ومشاركة أفكاركِ النيرة مع إدارة المدرسة.
-                    </p>
-                </div>
+      <a href="#formSection" class="btn btn-light mt-8">
+        <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+        <span>شاركي اقتراحكِ الآن</span>
+      </a>
+    </div>
+  </header>
 
-                <!-- 3D Framed Microsoft Form Container -->
-                <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80 bg-white" style="height: 650px;">
-                    <iframe 
-                        src="https://forms.cloud.microsoft/r/39W1Sycx5B?origin=lprLink" 
-                        class="w-full h-full border-0" 
-                        title="نموذج اقتراحات طالبات مدرسة بلقيس"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+  <!-- Pillars -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12" aria-label="أهداف البوابة">
+    <article class="pillar p-6 sm:p-7 text-center">
+      <div class="icon-box mx-auto mb-4 text-white" style="background:linear-gradient(135deg,#e11d48,#f472b6)"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></div>
+      <h3 class="text-lg sm:text-xl font-bold mb-2">أفكار الطالبات</h3>
+      <p class="text-sm sm:text-base" style="color:var(--muted)">نستمع بشغف لأفكاركن ومقترحاتكن الإبداعية لتطوير بيئة التعليم والتعلم.</p>
+    </article>
+    <article class="pillar p-6 sm:p-7 text-center">
+      <div class="icon-box mx-auto mb-4 text-white" style="background:linear-gradient(135deg,#b7791f,#f59e0b)"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+      <h3 class="text-lg sm:text-xl font-bold mb-2">تجويد التعليم</h3>
+      <p class="text-sm sm:text-base" style="color:var(--muted)">نعمل معاً على رفع كفاءة الأنشطة الصفية والبرامج التعليمية المبتكرة.</p>
+    </article>
+    <article class="pillar p-6 sm:p-7 text-center">
+      <div class="icon-box mx-auto mb-4 text-white" style="background:linear-gradient(135deg,#0f766e,#2dd4bf)"><i class="fa-solid fa-comments" aria-hidden="true"></i></div>
+      <h3 class="text-lg sm:text-xl font-bold mb-2">صندوق الاقتراحات</h3>
+      <p class="text-sm sm:text-base" style="color:var(--muted)">شاركينا مقترحكِ ليُعرض في الطابور المدرسي وعبر الشاشات كفكرة ملهمة.</p>
+    </article>
+  </section>
 
-                <!-- Direct Link Backup Button -->
-                <div class="mt-6 text-center">
-                    <a href="https://forms.cloud.microsoft/r/39W1Sycx5B?origin=lprLink" target="_blank" class="btn-3d inline-flex items-center gap-3 px-8 py-4 bg-rose-600 text-white font-bold rounded-2xl shadow-lg hover:bg-rose-700 transition-all text-base">
-                        <i class="fa-solid fa-external-link-alt"></i>
-                        <span>فتح النموذج في نافذة مستقلة</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center py-6 text-slate-500 text-sm font-medium">
-            <p>جميع الحقوق محفوظة © 2026 — <strong class="text-slate-700">مدرسة بلقيس للبنات (الصفوف 7-10)</strong></p>
-            <p class="mt-1">بإشراف مديرة المدرسة: <span class="text-rose-600 font-bold">الأستاذة محفوظة الروشدية</span> | حساب النشر: <span class="text-slate-800 font-bold">@EduGovNbt2156</span></p>
-        </footer>
-
+  <!-- Form -->
+  <section id="formSection" class="form-panel p-4 sm:p-10 mb-10 scroll-mt-4" aria-labelledby="formTitle">
+    <div class="text-center mb-6 sm:mb-8">
+      <h2 id="formTitle" class="display font-bold mb-2" style="font-size:clamp(1.6rem,4.5vw,2.4rem);color:var(--plum)">نموذج اقتراحات تجويد التعليم والتعلم</h2>
+      <p class="max-w-2xl mx-auto text-sm sm:text-base" style="color:var(--muted)">
+        عزيزتي الطالبة، املئي النموذج أدناه ليصل اقتراحكِ مباشرةً إلى إدارة المدرسة.
+      </p>
     </div>
 
-    <!-- JavaScript for 3D Tilt Effect on Cards & Header -->
-    <script>
-        // Interactive 3D tilt effect for elements with class 'card-3d'
-        const tiltCards = document.querySelectorAll('.card-3d');
+    <!-- How to -->
+    <ol class="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-6 max-w-3xl mx-auto sm:mb-8 text-sm sm:text-base" style="list-style:none;padding:0">
+      <li class="flex items-center gap-3 p-3 rounded-2xl" style="background:var(--blush)"><span class="step-num">1</span><span>اكتبي فكرتكِ بوضوح وبجملة مفهومة.</span></li>
+      <li class="flex items-center gap-3 p-3 rounded-2xl" style="background:var(--blush)"><span class="step-num">2</span><span>اضغطي زر الإرسال في آخر النموذج.</span></li>
+    </ol>
 
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left; //x position within card
-                const y = e.clientY - rect.top;  //y position within card
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                // Calculate rotation angle (max 8 degrees)
-                const rotateX = -((y - centerY) / centerY) * 6;
-                const rotateY = ((x - centerX) / centerX) * 6;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-            });
+    <div class="frame-wrap">
+      <div class="loader" id="loader" role="status">
+        <div>
+          <div class="spin"></div>
+          <p class="font-semibold">جارٍ تحميل النموذج…</p>
+        </div>
+      </div>
+      <iframe id="msForm"
+        title="نموذج اقتراحات طالبات مدرسة بلقيس"
+        allow="clipboard-write; fullscreen"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-            });
-        });
-    </script>
+  </section>
+
+  <footer class="text-center pb-6 text-sm" style="color:var(--muted)">
+    <p>جميع الحقوق محفوظة © 2026 — <strong style="color:var(--ink)">مدرسة بلقيس للبنات (الصفوف 7-10)</strong></p>
+    <p class="mt-1">بإشراف مديرة المدرسة: <span class="font-bold" style="color:var(--plum)">الأستاذة محفوظة الروشدية</span> | حساب النشر: <span dir="ltr" class="font-bold inline-block" style="color:var(--ink)">@EduGovNbt2156</span></p>
+  </footer>
+</div>
+
+<script>
+  // Hide the loading overlay once the form is ready (with a safety timeout)
+  // رابط التضمين: إذا استخدمتِ رابط "تضمين" الرسمي من Microsoft Forms ضعيه هنا بدل الرابط التالي
+  const FORM_URL = 'https://forms.cloud.microsoft/r/39W1Sycx5B?embed=true';
+  const frame = document.getElementById('msForm');
+  frame.src = FORM_URL;
+  const loader = document.getElementById('loader');
+  const hide = () => loader.classList.add('done');
+  frame.addEventListener('load', hide);
+  setTimeout(hide, 8000);
+</script>
 </body>
 </html>
